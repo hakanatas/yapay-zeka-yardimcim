@@ -1,0 +1,101 @@
+/* ─────────────────────────────────────────────────────────────
+   YAPAY ZEKÂ YARDIMCIM — BTY.6.5.2 (senaryo)
+   Her vuruş bir altyazıdır: tr, en, note (öğretmen için seslendirme).
+   Değiştirdikten sonra: npm run build
+   ───────────────────────────────────────────────────────────── */
+BF.defineFilm({
+  meta: {
+    slug: 'yapay-zeka-yardimcim', title: 'Yapay Zekâ Yardımcım', titleEn: 'My AI Helper', code: 'BTY.6.5.2',
+    outcomeEn: 'Working with AI tools and technologies',
+    summary: 'Farklı amaçlara hizmet eden yapay zekâ araçları tanıtılır: sohbet, görsel üretme, çeviri, ses ve video araçları. Sınıf gazetesi hazırlarken her işe uygun araç seçilir. Bir sohbet aracıyla önce belirsiz, sonra net bir istem yazılarak haber başlıkları istenir ve seçilen başlık İngilizceye çevrilir; sonuç kontrol edilir. Son olarak yapay zekâ araçlarının kullanımı uygunluk ve verimlilik açısından değerlendirilir.',
+    summaryEn: 'AI tools for chatting, images, translation, audio and video are introduced; the right tool is chosen for each job on a class newspaper; Karo improves a vague prompt, gets headlines, translates one and checks the result; and AI tool use is judged for suitability and efficiency.',
+    blurb: 'Amaca uygun yapay zekâ aracı, net istem yazmak, sonucu kontrol etmek ve verimli kullanım.',
+    posterAlt: 'Başlık ve Karo; çevresinde sohbet robotu, çeviri, fırça ve gazete karoları',
+  },
+  scenes: [
+    { type: 'intro', icons: [{ icon: 'chatbot', c: 'mor' }, { icon: 'translate', c: 'turkuaz' }, { icon: 'brush', c: 'mercan' }, { icon: 'voice', c: 'safran' }, { icon: 'magazine', c: 'kobalt' }, { icon: 'ai', c: 'kobalt' }, { icon: 'check', c: 'zumrut' }, { icon: 'lightbulb', c: 'safran' }],
+      beats: [
+        { tr: 'Sınıf gazetesi çıkarıyoruz, işimiz çok!', en: 'We\'re making a class newspaper. So much to do!', extra: 1,
+          note: 'Karo\'nun sınıfı bir gazete hazırlıyor. Başlıklar, çizimler, İngilizce bir köşe... Yapay zekâ araçları yardım edebilir mi?' },
+        { tr: 'Doğru aracı seçip doğru kullanalım', en: 'Let\'s pick the right tool and use it well',
+          note: 'Yapay zekâ araçlarını amacına uygun seçmeyi ve kullanmayı öğrenelim.' },
+      ] },
+    { type: 'cards', name: 'Araçlar', en: 'Tools', desc: 'Sohbet, görsel üretme ve çeviri araçları; ses ve video.', out: 'a',
+      cards: [
+        { word: 'SOHBET ARACI', def: 'Soru cevaplar, fikir verir, metin yazar', icon: 'chatbot', c: 'mor' },
+        { word: 'GÖRSEL ÜRETİCİ', def: 'Yazdığımız tariften resim çizer', icon: 'brush', c: 'mercan' },
+        { word: 'ÇEVİRİ ARACI', def: 'Metni başka bir dile çevirir', icon: 'translate', c: 'turkuaz' },
+      ],
+      result: { word: 'YAPAY ZEKÂ ARAÇLARI', c: 'safran', chips: ['ses', 'video', 'özetleme'], line: 'Her araç farklı bir amaca hizmet eder' },
+      beats: [
+        { tr: 'Sohbet aracı: soru cevaplar, metin yazar', en: 'Chat tool: answers questions, writes text',
+          note: 'Sohbet araçları sorularımızı cevaplar, fikir verir ve metin yazar.' },
+        { tr: 'Görsel üretici: tariften resim çizer', en: 'Image generator: draws from a description',
+          note: 'Görsel üretme araçları, yazdığımız tarife göre resim çizer.' },
+        { tr: 'Çeviri aracı: başka dile çevirir', en: 'Translator: turns text into another language',
+          note: 'Çeviri araçları bir metni başka bir dile çevirir.' },
+        { tr: 'Ses ve video araçları da var', en: 'There are audio and video tools too', extra: 1,
+          note: 'Yazıyı sese çeviren, video özetleyen araçlar da vardır. Her araç farklı bir amaca hizmet eder.' },
+      ] },
+    { type: 'sort', name: 'Hangi araç?', en: 'Which tool?', desc: 'Gazete işleri için amaca uygun yapay zekâ aracı seçilir.', out: 'a',
+      bins: [{ label: 'SOHBET', c: 'mor' }, { label: 'GÖRSEL', c: 'mercan' }, { label: 'ÇEVİRİ', c: 'turkuaz' }, { label: 'SES', c: 'safran' }],
+      items: [
+        { icon: 'lightbulb', name: 'Haber başlığı fikri', bin: 0, beat: 1 },
+        { icon: 'brush', name: 'Fidan çizimi', bin: 1, beat: 1 },
+        { icon: 'translate', name: 'İngilizce köşe', bin: 2, beat: 2 },
+        { icon: 'voice', name: 'Gazetenin sesli hâli', bin: 3, beat: 2 },
+      ],
+      beats: [
+        { tr: 'Gazetenin her işine bir araç', en: 'A tool for each newspaper job',
+          note: 'Gazetedeki işleri uygun araçlarla eşleştirelim.' },
+        { tr: 'Başlığa sohbet, çizime görsel aracı', en: 'Chat for headlines, an image tool for drawings',
+          note: 'Başlık fikirleri için sohbet aracı, fidan çizimi için görsel üretici kullanırız.' },
+        { tr: 'İngilizce köşeye çeviri, sesli gazeteye ses', en: 'Translation for the English corner, audio for a spoken edition', extra: 1,
+          note: 'İngilizce köşe için çeviri aracı, görme engelli arkadaşlarımız için gazetenin sesli hâlini hazırlarken ses aracı kullanabiliriz.' },
+      ] },
+    { type: 'app', app: 'chat', title: 'Yapay Zekâ Sohbet', name: 'Aracı kullan', en: 'Use the tool', desc: 'Net istem yazmak, sonucu geliştirmek ve kontrol etmek.', out: 'b',
+      data: { placeholder: 'İsteğini yaz...', msgs: [
+        { who: 'me', text: 'Başlık yaz.', tool: 'ask' },
+        { who: 'ai', text: 'Tabii! Hangi konu için, kimler okuyacak?', tool: 'ask' },
+        { who: 'me', text: '6. sınıf gazetemiz için bahçeye dikilen fidanlarla ilgili 3 kısa, eğlenceli başlık öner.', tool: 'refine' },
+        { who: 'ai', text: '1. Bahçemize 20 yeni arkadaş geldi!  2. Fidanlar büyüyor, biz de!  3. Yeşil bir teneffüs', tool: 'refine' },
+        { who: 'me', text: '2. başlığı İngilizceye çevir.', tool: 'translate' },
+        { who: 'ai', text: 'The saplings are growing, and so are we!', tool: 'translate' },
+      ] },
+      tools: [{ id: 'ask', label: 'İlk istem' }, { id: 'refine', label: 'Net istem' }, { id: 'translate', label: 'Çevir' }, { id: 'check', label: 'Kontrol et' }],
+      beats: [
+        { tr: 'Belirsiz istem, belirsiz cevap', en: 'A vague prompt gets a vague answer', tool: 'ask', hint: '"Başlık yaz." çok belirsiz',
+          note: 'Karo önce "Başlık yaz" dedi. Araç ne için ve kimin için olduğunu sordu. İstem çok belirsizdi.' },
+        { tr: 'Konu, kitle ve biçim ekle', en: 'Add the topic, audience and format', tool: 'refine', hint: 'Net istem = işe yarar cevap', extra: 1.5,
+          note: 'Karo istemini netleştirdi: 6. sınıf gazetesi, fidanlar, 3 kısa ve eğlenceli başlık. Şimdi cevap işe yarıyor!' },
+        { tr: 'Seçtiğin başlığı çevirt', en: 'Have your chosen headline translated', tool: 'translate', hint: 'İngilizce köşe için', extra: 1,
+          note: 'Karo ikinci başlığı seçti ve İngilizceye çevirmesini istedi.' },
+        { tr: 'Sonucu kontrol et ve belirt', en: 'Check the result and credit the AI', tool: 'check', hint: 'Sözlükle kontrol + "YZ desteğiyle"', extra: 1,
+          note: 'Çeviriyi öğretmeniyle ve sözlükle kontrol etti. Gazetede de "yapay zekâ desteğiyle hazırlandı" diye belirtti.' },
+      ] },
+    { type: 'judge', name: 'Uygun ve verimli mi?', en: 'Suitable and efficient?', desc: 'Yapay zekâ araçlarının kullanımı uygunluk ve verimlilik açısından değerlendirilir.', out: 'c', labels: { ok: 'uygun', no: 'uygun değil' },
+      beats: [
+        { tr: 'Basit bir toplama için sohbet aracına sormak', en: 'Asking a chatbot for simple addition',
+          note: '12 artı 8 gibi basit bir işlem için yapay zekâya sormak gereksizdir; kendimiz ya da hesap makinesiyle hemen buluruz.',
+          row: { icon: 'chatbot', text: '"12 + 8 kaç eder?" diye yapay zekâya sordum', ok: false, why: 'Basit iş için gereksiz' } },
+        { tr: 'Gerçek bir kişinin sahte fotoğrafını ürettirmek', en: 'Generating a fake photo of a real person',
+          note: 'Gerçek bir kişinin sahte fotoğrafını üretmek yanıltıcıdır ve etik değildir.',
+          row: { icon: 'brush', text: 'Müdürümüzün sahte bir fotoğrafını ürettim', ok: false, why: 'Yanıltıcı, izinsiz, etik değil' } },
+        { tr: 'Fikir alıp kendi cümlelerimle yazmak', en: 'Getting ideas, then writing in my own words',
+          note: 'Yapay zekâdan fikir alıp haberi kendi cümlelerimizle yazmak hem verimli hem doğrudur.',
+          row: { icon: 'pen', text: 'Yapay zekâdan fikir aldım, haberi kendim yazdım', ok: true, why: 'Verimli ve özgün' } },
+      ] },
+    { type: 'summary',
+      lines: [
+        { icon: 'ai', c: 'kobalt', text: 'Amaca uygun yapay zekâ aracını seç' },
+        { icon: 'lightbulb', c: 'safran', text: 'Net istem: konu, kitle, biçim' },
+        { icon: 'check', c: 'zumrut', text: 'Sonucu kontrol et, kullandığını belirt' },
+      ],
+      beats: [
+        { tr: 'Aklında kalsın: yapay zekâ yardımcıdır, sorumlu sensin', en: 'Remember: AI helps, but you are responsible',
+          note: 'Aklında kalsın: yapay zekâ güçlü bir yardımcıdır. Ama doğru aracı seçmek, net istemek ve sonucu kontrol etmek senin görevin.' },
+        { tr: 'Akıllı araç, akıllı kullanıcı!', en: 'Smart tool, smart user!',
+          note: 'Akıllı araçları akıllıca kullan!' },
+      ] },
+  ],
+});
